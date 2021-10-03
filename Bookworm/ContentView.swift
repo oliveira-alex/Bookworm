@@ -11,6 +11,7 @@ struct ContentView: View {
     @Environment(\.managedObjectContext) var moc
     @FetchRequest(entity: Student.entity(), sortDescriptors: []) var students: FetchedResults<Student>
     
+    
     var body: some View {
         VStack {
             List {
