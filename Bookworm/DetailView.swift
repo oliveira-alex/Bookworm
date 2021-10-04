@@ -8,6 +8,14 @@
 import CoreData
 import SwiftUI
 
+extension Date {
+    func string() -> String {
+        let dateformat = DateFormatter()
+        dateformat.dateFormat = "dd/MM/yyyy"
+        return dateformat.string(from: self)
+    }
+}
+
 struct DetailView: View {
     @Environment(\.managedObjectContext) var moc
     @Environment(\.presentationMode) var presentationMode
@@ -41,6 +49,10 @@ struct DetailView: View {
                 
                 RatingView(rating: .constant(Int(self.book.rating)))
                     .font(.largeTitle)
+                
+                Text(self.book.date?.string() ?? "Unknown date")
+                    .font(.title2)
+                    .padding()
                 
                 Spacer()
             }
