@@ -27,7 +27,7 @@ struct DetailView: View {
         GeometryReader { geometry in
             VStack {
                 ZStack(alignment: .bottomTrailing) {
-                    Image(self.book.genre ?? "Fantasy")
+                    Image(decorative: self.book.genre ?? "Fantasy")
                         .frame(maxWidth: geometry.size.width)
                     
                     Text(self.book.genre?.uppercased() ?? "FANTASY")
