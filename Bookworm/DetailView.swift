@@ -49,6 +49,9 @@ struct DetailView: View {
                 
                 RatingView(rating: .constant(Int(self.book.rating)))
                     .font(.largeTitle)
+                    .accessibilityElement(children: .combine)
+                    .accessibilityLabel(Text("\(Int(self.book.rating) == 1 ? "1 star" : "\(Int(self.book.rating)) stars")"))
+                    .accessibilityRemoveTraits(.isButton)
                 
                 Text(self.book.date?.string() ?? "Unknown date")
                     .font(.title2)
